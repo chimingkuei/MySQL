@@ -91,12 +91,6 @@ namespace MySQL
                    "delete from " + table_name + "where" + condition + ";";
         }
 
-        public string DropTable(string database_name, string table_name, string content)
-        {
-            return "use " + database_name + ";" +
-                   "drop table " + table_name + ";";
-        }
-
         public void MySQLTable(string database_name, string table_name, string content, Func<string, string, string, string> fun)
         {
             string connetStr = StrPack();
@@ -117,9 +111,36 @@ namespace MySQL
             }
 
         }
+
+        public string DropTable(string database_name, string table_name)
+        {
+            return "use " + database_name + ";" +
+                   "drop table " + table_name + ";";
+        }
+
+        public void MySQLTable(string database_name, string table_name, Func<string, string, string> fun)
+        {
+            string connetStr = StrPack();
+            MySqlConnection conn = new MySqlConnection(connetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(fun(database_name, table_name), conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
         #endregion
 
-        
+
 
 
     }

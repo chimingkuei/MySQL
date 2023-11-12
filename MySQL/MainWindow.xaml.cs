@@ -81,7 +81,7 @@ namespace MySQL
                     {
                         Core Do = new Core("3306", "root", "Asher19910930");
                         //Do.MySQLDatabase("school2", Do.CreateDatabase);
-                        //Do.MySQLTable("school", "classc", "", Do.DropTable);
+                        //Do.MySQLTable("school", "classc",Do.DropTable);
                         break;
                     }
                
