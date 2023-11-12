@@ -45,7 +45,7 @@ namespace MySQL
             
         }
 
-        //同參數多組設定
+        // 同參數多組設定
         public void Save(List<T> Record, int replaceindex, bool Encryption = false)
         {
             string jsonData = JsonConvert.SerializeObject(Record);
@@ -87,7 +87,7 @@ namespace MySQL
             return jsonData;
         }
 
-        //加密
+        // 加密
         private string RSAEncrypt(string content)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
@@ -97,7 +97,7 @@ namespace MySQL
             return Convert.ToBase64String(cipherbytes);
         }
 
-        //解密
+        // 解密
         private string RSADecrypt(string content)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();

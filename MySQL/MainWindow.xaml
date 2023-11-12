@@ -39,9 +39,11 @@
         <TabControl HorizontalAlignment="Left" Margin="5,8,0,0" VerticalAlignment="Top" Height="478" Width="978" Background="#FFE6F0FF">
             <TabItem Header="主畫面" Style="{StaticResource BaseTabcontrol}">
                 <Grid>
-                    <Button x:Name="Demo" Style="{StaticResource BaseButton}" Margin="174,230,656,162" Content="Demo" FontSize="18" Click="Main_Btn_Click"/>
-
-
+                    <Button x:Name="Show_Database" Style="{StaticResource BaseButton}" Margin="125,87,705,305" Content="Show Database" Background="#FF3E6FB3" FontSize="16" Click="Main_Btn_Click"/>
+                    <Button x:Name="Create_Database" Style="{StaticResource BaseButton}" Margin="125,164,705,228" Content="Create Database" Background="#FF3E6FB3" FontSize="16" Click="Main_Btn_Click"/>
+                    <TextBox x:Name="Create_Database_Name" Style="{StaticResource BaseTextBox}" Margin="285,166,494,231" FontSize="16" TextAlignment="Center"></TextBox>
+                    <Button x:Name="Delete_Database" Style="{StaticResource BaseButton}" Margin="125,241,705,151" Content="Delete Database" Background="#FF3E6FB3" FontSize="16" Click="Main_Btn_Click"/>
+                    <TextBox x:Name="Delete_Database_Name" Style="{StaticResource BaseTextBox}" Margin="285,244,494,154" FontSize="16" TextAlignment="Center"></TextBox>
 
                 </Grid>
             </TabItem>

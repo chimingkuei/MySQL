@@ -70,6 +70,7 @@ namespace MySQL
         //};
         //Config.Save(Parameter_config);
         #endregion
+        Core Do = new Core("3306", "root", "Asher19910930");
         #endregion
 
         #region Main Screen
@@ -77,14 +78,36 @@ namespace MySQL
         {
             switch ((sender as Button).Name)
             {
-                case nameof(Demo):
+                case nameof(Show_Database):
                     {
-                        Core Do = new Core("3306", "root", "Asher19910930");
-                        //Do.MySQLDatabase("school2", Do.CreateDatabase);
-                        //Do.MySQLTable("school", "classc",Do.DropTable);
+                        Do.ShowDatabase();
                         break;
                     }
-               
+                case nameof(Create_Database):
+                    {
+                        if (!string.IsNullOrEmpty(Create_Database_Name.Text))
+                        {
+                            Do.MySQLDatabase(Create_Database_Name.Text, Do.CreateDatabase);
+                        }
+                        else
+                        {
+                            MessageBox.Show("請填入要建立的Database名稱!", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        break;
+                    }
+                case nameof(Delete_Database):
+                    {
+                        if (!string.IsNullOrEmpty(Delete_Database_Name.Text))
+                        {
+                            Do.MySQLDatabase(Delete_Database_Name.Text, Do.DropDatabase);
+                        }
+                        else
+                        {
+                            MessageBox.Show("請填入要刪除的Database名稱!", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        break;
+                    }
+
             }
         }
         #endregion

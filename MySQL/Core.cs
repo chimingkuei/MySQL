@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Relational;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,34 @@ namespace MySQL
         }
 
         #region Database Operation
+        public void ShowDatabase()
+        {
+            string connetStr = StrPack();
+            MySqlConnection conn = new MySqlConnection(connetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("show databases;", conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("Databases:");
+                    while (reader.Read())
+                    {
+                        string databaseName = reader.GetString(0);
+                        Console.WriteLine(databaseName);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public string CreateDatabase(string database_name)
         {
             return "create database " + database_name + ";";
