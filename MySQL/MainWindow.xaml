@@ -45,6 +45,7 @@
                     <Button x:Name="Delete_Database" Style="{StaticResource BaseButton}" Margin="125,241,705,151" Content="Delete Database" Background="#FF3E6FB3" FontSize="16" Click="Main_Btn_Click"/>
                     <TextBox x:Name="Delete_Database_Name" Style="{StaticResource BaseTextBox}" Margin="285,244,494,154" FontSize="16" TextAlignment="Center"></TextBox>
                     <Button x:Name="Show_Table" Style="{StaticResource BaseButton}" Margin="574,92,256,300" Content="Show Table" Background="#FF3E6FB3" FontSize="16" Click="Main_Btn_Click"/>
+                    <Button x:Name="Show_Table1" Style="{StaticResource BaseButton}" Margin="574,92,256,300" Content="Show Table" Background="#FF3E6FB3" FontSize="16" Click="Main_Btn_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="參數畫面" Style="{StaticResource BaseTabcontrol}">
