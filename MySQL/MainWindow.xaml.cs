@@ -107,6 +107,18 @@ namespace MySQL
                         }
                         break;
                     }
+                case nameof(Show_Table):
+                    {
+                        if (!string.IsNullOrEmpty(Create_Database_Name.Text))
+                        {
+                            Do.ShowTable(Create_Database_Name.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("請填入Database名稱!", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        }
+                        break;
+                    }
 
             }
         }

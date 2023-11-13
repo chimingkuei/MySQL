@@ -28,7 +28,7 @@ namespace MySQL
             return "server=127.0.0.1;" + nameof(port) + "=" + port + ";" + nameof(user) + "=" + user + ";" + nameof(password) + "=" + password + ";";
         }
 
-        #region Database Operation
+        #region Show Database Information
         public void ShowDatabase()
         {
             string connetStr = StrPack();
@@ -57,6 +57,36 @@ namespace MySQL
             }
         }
 
+        public void ShowTable(string table_name)
+        {
+            string connetStr = StrPack();
+            MySqlConnection conn = new MySqlConnection(connetStr);
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("use " + table_name + ";" + "show tables;", conn);
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("Table:");
+                    while (reader.Read())
+                    {
+                        string databaseName = reader.GetString(0);
+                        Console.WriteLine(databaseName);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        #endregion
+
+        #region Database Operation
         public string CreateDatabase(string database_name)
         {
             return "create database " + database_name + ";";
@@ -90,6 +120,7 @@ namespace MySQL
         #endregion
 
         #region Table Operation
+
         public string CreateTable(string database_name, string table_name, string content)
         {
             return "use " + database_name + ";" +
