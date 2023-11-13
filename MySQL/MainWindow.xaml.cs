@@ -54,10 +54,7 @@ namespace MySQL
         {
 
         }
-        #region Log
         BaseLogRecord Logger = new BaseLogRecord();
-        //Logger.WriteLog("儲存參數!", 1, richTextBoxGeneral);
-        #endregion
         #region Config
         BaseConfig<Parameter> Config = new BaseConfig<Parameter>();
         //Load Config
@@ -81,6 +78,7 @@ namespace MySQL
                 case nameof(Show_Database):
                     {
                         Do.ShowDatabase();
+                        Logger.WriteLog("Show Database!", 1, richTextBoxGeneral);
                         break;
                     }
                 case nameof(Create_Database):
@@ -88,6 +86,7 @@ namespace MySQL
                         if (!string.IsNullOrEmpty(Create_Database_Name.Text))
                         {
                             Do.MySQLDatabase(Create_Database_Name.Text, Do.CreateDatabase);
+                            Logger.WriteLog("Create Database" + Create_Database_Name.Text + "!", 1, richTextBoxGeneral);
                         }
                         else
                         {
@@ -100,6 +99,7 @@ namespace MySQL
                         if (!string.IsNullOrEmpty(Delete_Database_Name.Text))
                         {
                             Do.MySQLDatabase(Delete_Database_Name.Text, Do.DropDatabase);
+                            Logger.WriteLog("Delete Database" + Delete_Database_Name.Text + "!", 1, richTextBoxGeneral);
                         }
                         else
                         {
@@ -112,6 +112,7 @@ namespace MySQL
                         if (!string.IsNullOrEmpty(Create_Database_Name.Text))
                         {
                             Do.ShowTable(Create_Database_Name.Text);
+                            Logger.WriteLog("Show Tables!", 1, richTextBoxGeneral);
                         }
                         else
                         {

@@ -57,14 +57,14 @@ namespace MySQL
             }
         }
 
-        public void ShowTable(string table_name)
+        public void ShowTable(string database_name)
         {
             string connetStr = StrPack();
             MySqlConnection conn = new MySqlConnection(connetStr);
             try
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("use " + table_name + ";" + "show tables;", conn);
+                MySqlCommand cmd = new MySqlCommand("use " + database_name + ";" + "show tables;", conn);
                 using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     Console.WriteLine("Table:");
