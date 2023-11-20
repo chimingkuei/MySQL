@@ -10,8 +10,8 @@
         ResizeMode="CanMinimize"
         Title="MySQL" Height="700" Width="1000" Background="#FF3E6FB3" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        <Image x:Name="Logo" HorizontalAlignment="Left" Height="141" Margin="814,513,0,0" VerticalAlignment="Top" Width="159" Source="Icon/Database Client.png"/>
-        <TabControl x:Name="Log" HorizontalAlignment="Left" Height="172" Margin="5,490,0,0" VerticalAlignment="Top" Width="790" Background="#FFE6F0FF">
+        <Image x:Name="Logo" HorizontalAlignment="Left" Height="141" Margin="820,513,0,0" VerticalAlignment="Top" Width="159" Source="Icon/Database Client.png"/>
+        <TabControl x:Name="Log" HorizontalAlignment="Left" Height="172" Margin="5,485,0,0" VerticalAlignment="Top" Width="790" Background="#FFE6F0FF">
             <TabControl.Resources>
                 <Style TargetType="RichTextBox">
                     <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
@@ -37,7 +37,7 @@
                 <RichTextBox x:Name="richTextBoxDebug" Background="#FF4396BF"/>
             </TabItem>
         </TabControl>
-        <TabControl HorizontalAlignment="Left" Margin="5,8,0,0" VerticalAlignment="Top" Height="478" Width="978" Background="#FFE6F0FF">
+        <TabControl HorizontalAlignment="Left" Margin="5,3,0,0" VerticalAlignment="Top" Height="478" Width="978" Background="#FFE6F0FF">
             <TabItem Header="主畫面" Style="{StaticResource BaseTabcontrol}">
                 <Grid>
                     <Button x:Name="Show_Database" Style="{StaticResource BaseButton}" Margin="125,87,705,305" Content="Show Database" Background="#FF3E6FB3" FontSize="16" Click="Main_Btn_Click"/>
