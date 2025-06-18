@@ -10,13 +10,13 @@ using System.Windows;
 
 namespace MySQL
 {
-    class Core
+    class MySQLHandler
     {
         public string port { get; set; }
         public string user { get; set; }
         public string password { get; set; }
 
-        public Core(string _port, string _user, string _password)
+        public MySQLHandler(string _port, string _user, string _password)
         {
             port = _port;
             user = _user;

@@ -67,7 +67,7 @@ namespace MySQL
         //};
         //Config.Save(Parameter_config);
         #endregion
-        Core Do = new Core("3306", "root", "Asher19910930");
+        MySQLHandler Do = new MySQLHandler("3306", "root", "Asher19910930");
         #endregion
 
         #region Main Screen
