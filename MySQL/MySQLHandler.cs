@@ -23,7 +23,7 @@ namespace MySQL
             password = _password;
         }
 
-        private string StrPack()
+        private string SqlConnectionString()
         {
             return "server=127.0.0.1;" + nameof(port) + "=" + port + ";" + nameof(user) + "=" + user + ";" + nameof(password) + "=" + password + ";";
         }
@@ -31,7 +31,7 @@ namespace MySQL
         #region Show Database Information
         public void ShowDatabase()
         {
-            string connetStr = StrPack();
+            string connetStr = SqlConnectionString();
             MySqlConnection conn = new MySqlConnection(connetStr);
             try
             {
@@ -59,7 +59,7 @@ namespace MySQL
 
         public void ShowTable(string database_name)
         {
-            string connetStr = StrPack();
+            string connetStr = SqlConnectionString();
             MySqlConnection conn = new MySqlConnection(connetStr);
             try
             {
@@ -99,7 +99,7 @@ namespace MySQL
 
         public void MySQLDatabase(string database_name, Func<string, string> fun)
         {
-            string connetStr = StrPack();
+            string connetStr = SqlConnectionString();
             MySqlConnection conn = new MySqlConnection(connetStr);
             try
             {
@@ -153,7 +153,7 @@ namespace MySQL
 
         public void MySQLTable(string database_name, string table_name, string content, Func<string, string, string, string> fun)
         {
-            string connetStr = StrPack();
+            string connetStr = SqlConnectionString();
             MySqlConnection conn = new MySqlConnection(connetStr);
             try
             {
@@ -180,7 +180,7 @@ namespace MySQL
 
         public void MySQLTable(string database_name, string table_name, Func<string, string, string> fun)
         {
-            string connetStr = StrPack();
+            string connetStr = SqlConnectionString();
             MySqlConnection conn = new MySqlConnection(connetStr);
             try
             {
